@@ -1,0 +1,23 @@
+GET http://localhost:3333/cidades/1
+###
+GET http://localhost:3333/cidades?page=1&limit=1&filter=2
+###
+POST http://localhost:3333/cidades
+content-type: application/json
+
+{
+  "nome":"Lukapa"
+ 
+}
+###
+PUT http://localhost:3333/cidades/1
+content-type: application/json
+
+{
+  "nome":"Luanda"
+ 
+}
+###
+DELETE  http://localhost:3333/cidades/1
+content-type: application/json
+

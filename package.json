@@ -12,7 +12,8 @@
     "knex:rollback-all": "knex --knexfile ./src/server/database/knex/Environment.ts migrate:rollback --all",
     "knex:down": "knex --knexfile ./src/server/database/knex/Environment.ts down",
     "knex:seed": "knex --knexfile ./src/server/database/knex/Environment.ts seed:run",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

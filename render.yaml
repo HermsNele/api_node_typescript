@@ -1,0 +1,11 @@
+# Exported from Render on 2024-08-15T17:53:27Z
+services:
+- type: web
+  name: api_node_typescript
+  runtime: node
+  repo: https://github.com/HermsNele/api_node_typescript
+  plan: free
+  region: oregon
+  buildCommand: bun
+  startCommand: bun run
+version: "1"

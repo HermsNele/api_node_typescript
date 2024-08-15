@@ -1,12 +1,14 @@
 GET http://localhost:3333/cidades/1
 ###
-GET http://localhost:3333/cidades?page=1&limit=1&filter=2
+GET http://localhost:3333/cidades?page=1&limit=7&filter=
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTcyMzcwOTM1NSwiZXhwIjoxNzIzNzk1NzU1fQ.F8xhLyMihb7Scro5zvq9UPHmx_FQG853MHc8HiDcaUo
+
 ###
 POST http://localhost:3333/cidades
 content-type: application/json
 
 {
-  "nome":"Lukapa"
+  "nome":"Chitato"
  
 }
 ###
@@ -20,4 +22,46 @@ content-type: application/json
 ###
 DELETE  http://localhost:3333/cidades/1
 content-type: application/json
+#####
+GET http://localhost:3333/pessoas/1
+###
+GET http://localhost:3333/pessoas?page=1&limit=7&filter=
 
+###
+POST http://localhost:3333/pessoas
+content-type: application/json
+
+{
+  "nome":"Chitato"
+ 
+}
+###
+PUT http://localhost:3333/pessoas/1
+content-type: application/json
+
+{
+  "nome":"Luanda"
+ 
+}
+###
+DELETE  http://localhost:3333/pessoas/1
+content-type: application/json
+
+###
+POST http://localhost:3333/cadastrar
+content-type: application/json
+
+{
+  "nome":"Gijas Power",
+  "senha":"123456",
+  "email":"gijaspower@gmail.com"
+}
+###
+POST http://localhost:3333/entrar
+content-type: application/json
+
+{
+  
+  "senha":"123456",
+  "email":"gijaspower@gmail.com"
+}

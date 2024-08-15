@@ -1,18 +1,48 @@
-import { StatusCodes } from "http-status-codes";
-import { testServer } from "../jest.setup";
+import { StatusCodes } from 'http-status-codes';
+import { testServer } from '../jest.setup';
 
-describe("Delete cidades", () => {
-  test("Apgar", async () => {
-    const res1 = await testServer.post("/cidades").send({
-      nome: "Caxias do sul",
+describe('Delete city by Id', () => {
+  let accessToken = '';
+  beforeAll(async () => {
+    const email = 'delete-cidades@gmail.com';
+    await testServer.post('/cadastrar').send({
+      nome: 'Teste',
+      email,
+      senha: '123456',
     });
-
-    expect(res1.statusCode).toEqual(StatusCodes.CREATED);
-    const resApagar = await testServer.delete(`/cidades/${res1.body}`).send();
-    expect(resApagar.statusCode).toEqual(StatusCodes.NO_CONTENT);
+    const signInRes = await testServer.post('/entrar').send({
+      email,
+      senha: '123456',
+    });
+    accessToken = signInRes.body.accessToken;
   });
-  test("Tentar apagar registo que nao existe",async()=>{
-    const res1=await testServer.delete('/cidades/99839').send()
-    expect(res1.body).toHaveProperty('errors.default')
-  })
+  it('Tenta apagar registro que sem token', async () => {
+    const res1 = await testServer.delete('/cidades/1').send();
+
+    expect(res1.statusCode).toEqual(StatusCodes.UNAUTHORIZED);
+    expect(res1.body).toHaveProperty('errors.default');
+  });
+  it('Apagar registo de cidades', async () => {
+    const rescriar_city = await testServer
+      .post('/cidades')
+      .set({ authorization: `Bearer ${accessToken}` })
+      .send({
+        nome: 'Caxias do Sul',
+      });
+    expect(rescriar_city.statusCode).toEqual(StatusCodes.CREATED);
+    const resapagar_city = await testServer
+      .delete(`/cidades/${rescriar_city.body}`)
+      .set({ authorization: `Bearer ${accessToken}` })
+      .send();
+    expect(resapagar_city.statusCode).toEqual(StatusCodes.NO_CONTENT);
+  });
+  it('Tenta apagar registro que não existe', async () => {
+    const res1 = await testServer
+      .delete('/cidades/99999')
+      .set({ authorization: `Bearer ${accessToken}` })
+      .send();
+
+    expect(res1.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);
+    expect(res1.body).toHaveProperty('errors.default');
+  });
 });

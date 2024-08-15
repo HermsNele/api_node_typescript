@@ -56,10 +56,10 @@ build/Release
 
 # Dependency directories
 
-node_modules/
+.node_modules/
 jspm_packages/
 .vscode
-coverage
+.coverage
 
 # Snowpack dependency directory (https://snowpack.dev/)
 
@@ -180,3 +180,4 @@ dist
 .env
 *.sqlite
 
+node_modules

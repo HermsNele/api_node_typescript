@@ -1,5 +1,4 @@
 import { knex } from 'knex';
-import 'dotenv/config';
 import pg from 'pg';
 
 import { development, production, test } from './Environment';

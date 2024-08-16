@@ -2,7 +2,7 @@ import { Knex } from './src/server/database/knex';
 import { server } from './src/server/Server';
 import 'dotenv/config';
 console.log('I restarted at:', Date.now());
-const port = process.env.PORT || 4000;
+const port = 4000;
 const startServer = () => {
   server.listen(port, () => {
     console.log(`App rodando na porta ${port}`);

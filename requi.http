@@ -1,6 +1,6 @@
 GET http://localhost:3333/cidades/1
 ###
-GET http://localhost:3333/cidades?page=1&limit=7&filter=
+GET http://localhost:4000/cidades?page=1&limit=7&filter=
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTcyMzcwOTM1NSwiZXhwIjoxNzIzNzk1NzU1fQ.F8xhLyMihb7Scro5zvq9UPHmx_FQG853MHc8HiDcaUo
 
 ###

@@ -3,17 +3,16 @@
   "main": "index.js",
   "version": "101",
   "scripts": {
-    "dev": "bun run --watch index.ts",
-    "production": "node ./build/index.js",
-    "start": "bun ts-node-dev ./src/index.ts",
+    "dev": "bun --smol run index.ts",
+    "start": "bun ./index.ts",
+    "production": "bun run ./index.js",
     "postinstall": "tsc",
     "knex:migrate": "knex --knexfile ./src/server/database/knex/Environment.ts migrate:latest",
     "knex:rollback": "knex --knexfile ./src/server/database/knex/Environment.ts migrate:rollback",
     "knex:rollback-all": "knex --knexfile ./src/server/database/knex/Environment.ts migrate:rollback --all",
     "knex:down": "knex --knexfile ./src/server/database/knex/Environment.ts down",
     "knex:seed": "knex --knexfile ./src/server/database/knex/Environment.ts seed:run",
-    "test": "jest",
-    "build": "tsc"
+    "test": "jest"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

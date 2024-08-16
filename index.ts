@@ -1,9 +1,10 @@
 import { Knex } from './src/server/database/knex';
 import { server } from './src/server/Server';
+import 'dotenv/config';
 console.log('I restarted at:', Date.now());
 const startServer = () => {
   server.listen(process.env.PORT || 4000, () => {
-    console.log(`App rodando na porta ${process.env.PORT || 4000}`);
+    console.log(`App rodando na porta ${process.env.PORT}`);
   });
 };
 if (process.env.IS_LOCALHOST !== 'true') {

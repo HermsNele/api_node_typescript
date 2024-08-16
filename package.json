@@ -3,9 +3,8 @@
   "main": "index.js",
   "version": "101",
   "scripts": {
-    "dev": "bun --smol run index.ts",
-    "start": "bun run ./index.ts",
-    "production": "bun run ./build/index.js",
+    "dev": "bun --smol run src/index.ts",
+    "start": "bun run src/index.ts",
     "postinstall": "tsc",
     "knex:migrate": "knex --knexfile ./src/server/database/knex/Environment.ts migrate:latest",
     "knex:rollback": "knex --knexfile ./src/server/database/knex/Environment.ts migrate:rollback",
